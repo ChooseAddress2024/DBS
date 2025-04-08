@@ -41,7 +41,7 @@ for _, row in df.iterrows():
     })
 
 ner_df = pd.DataFrame(extracted)
-ner_output = "D:\\Interview_Prep\\DBS\\extracted_entities_with_text.csv"
+ner_output = "D:\\Interview_Prep\\DBS\\data\\extracted_entities_with_text.csv"
 ner_df.to_csv(ner_output, index=False)
 print(f"✅ NER results saved to: {ner_output}")
 
@@ -99,8 +99,8 @@ people_df = clusters_to_df(people_clusters, "PERSON")
 orgs_df = clusters_to_df(org_clusters, "ORG")
 
 # === Step 7: Save results ===
-people_df.to_csv("D:\\Interview_Prep\\DBS\\disambiguated_people.csv", index=False)
-orgs_df.to_csv("D:\\Interview_Prep\\DBS\\disambiguated_organizations.csv", index=False)
+people_df.to_csv("D:\\Interview_Prep\\DBS\\data\\disambiguated_people.csv", index=False)
+orgs_df.to_csv("D:\\Interview_Prep\\DBS\\data\\disambiguated_organizations.csv", index=False)
 
 print("🎯 Pipeline complete!")
 print("📁 Outputs:")

@@ -3,7 +3,7 @@ from fuzzywuzzy import fuzz
 from collections import defaultdict
 
 # === Load extracted entities from script 1 ===
-df = pd.read_csv("D:\\Interview_Prep\\DBS\\extracted_entities_with_text.csv")
+df = pd.read_csv("D:\\Interview_Prep\\DBS\\data\\extracted_entities_with_text.csv")
 
 # === Utility function to group similar names ===
 def group_similar_entities(entities_list, threshold=85):
@@ -45,8 +45,8 @@ people_df = cluster_to_df(people_clusters, "PERSON")
 orgs_df = cluster_to_df(org_clusters, "ORG")
 
 # === Export results ===
-people_df.to_csv("D:\\Interview_Prep\\DBS\\disambiguated_people.csv", index=False)
-orgs_df.to_csv("D:\\Interview_Prep\\DBS\\disambiguated_organizations.csv", index=False)
+people_df.to_csv("D:\\Interview_Prep\\DBS\\data\\disambiguated_people.csv", index=False)
+orgs_df.to_csv("D:\\Interview_Prep\\DBS\\data\\disambiguated_organizations.csv", index=False)
 
 print("✅ Entity disambiguation complete.")
 print("📄 Saved:")

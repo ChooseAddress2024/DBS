@@ -51,7 +51,7 @@ for _, row in df.iterrows():
     })
 
 # === Step 5: Save results ===
-output_path = "D:\\Interview_Prep\\DBS\\extracted_entities_with_text.csv"
+output_path = "D:\\Interview_Prep\\DBS\\data\\extracted_entities_with_text.csv"
 entities_df = pd.DataFrame(results)
 entities_df.to_csv(output_path, index=False)
 
