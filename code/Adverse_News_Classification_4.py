@@ -61,9 +61,12 @@ if not hasattr(kmeans, 'cluster_centers_'):
 
 # Assign clusters and compute confidence
 df["embedding_cluster"] = kmeans.labels_
-centroids = kmeans.cluster_centers_  # Now safe to access
+centroids = kmeans.cluster_centers_
 df["embedding_confidence"] = cosine_similarity(embeddings, centroids).max(axis=1)
 
-# Save or preview
+# Create embedding_category AFTER assigning clusters
+df["embedding_category"] = df["embedding_cluster"].apply(lambda x: f"Cluster {x}")
+
+# Save or preview - now embedding_category exists
 df.to_csv("D:\\Interview_Prep\\DBS\\data\\embedding_clustering_results.csv", index=False)
 print(df[["title", "embedding_category", "embedding_confidence"]].head())
