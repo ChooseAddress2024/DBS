@@ -15,7 +15,14 @@ docs = df["text"].tolist()
 embeddings = embedding_model.encode(docs, show_progress_bar=True)
 
 # Fit BERTopic
-topic_model = BERTopic()
+from transformers import __version__ as transformers_version
+from packaging import version
+
+# Fit BERTopic
+if version.parse(transformers_version) >= version.parse("4.31.0"):
+    topic_model = BERTopic(embedding_model=embedding_model)
+else:
+    topic_model = BERTopic()
 topics, probs = topic_model.fit_transform(docs, embeddings)
 
 # Add to DataFrame
