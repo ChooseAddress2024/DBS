@@ -10,7 +10,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import requests
 import time
 
-# === Setup headless browser for fallback ===
+
 def setup_browser():
     chrome_options = Options()
     chrome_options.add_argument("--headless")
